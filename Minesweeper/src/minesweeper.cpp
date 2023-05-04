@@ -29,7 +29,6 @@ void Minesweeper::Update()
     Draw();
     GameDiscover();
     GameFlag();
-    timerBetweenFlagging += DeltaTime;
 }
 
 void Minesweeper::Render()

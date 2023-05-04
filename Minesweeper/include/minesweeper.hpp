@@ -35,7 +35,6 @@ public:
 	Board board;
 	int flagCount;
 	bool previousMouseFlag = false;
-	float timerBetweenFlagging = 0.f;
 
 
 	void Draw();

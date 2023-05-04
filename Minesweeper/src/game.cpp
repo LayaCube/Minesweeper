@@ -34,7 +34,6 @@ void Minesweeper::AutoDiscovery(int x, int y)
 void Minesweeper::GameFlag()
 {
 	if (!mountain::Input::MouseDown[mountain::inputs::MouseButton_Right]) {previousMouseFlag = false ; return;} 
-	if( timerBetweenFlagging < 0.1f) return;
 	if (previousMouseFlag) return;
 	previousMouseFlag = true;
 	
