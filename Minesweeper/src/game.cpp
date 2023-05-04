@@ -37,7 +37,6 @@ void Minesweeper::GameFlag()
 	if (previousMouseFlag) return;
 	previousMouseFlag = true;
 	
-	timerBetweenFlagging = 0.f;
 	int x = tileSnap().x;
 	int y = tileSnap().y;
 	if (!isPositionValid(x, y)) return;
