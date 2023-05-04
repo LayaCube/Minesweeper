@@ -4,6 +4,8 @@
 #include <compare>
 #include <cassert>
 
+#include "imgui.h"
+
 class Vector2i;
 class Vector3;
 class Matrix;
@@ -99,6 +101,8 @@ public:
     // Automatically generates all comparison operators
 	[[nodiscard]]
 	friend auto operator<=>(const Vector2& a, const Vector2& b) = default;
+
+	operator ImVec2() { return ImVec2(x, y); }
 };
 
 [[nodiscard]]

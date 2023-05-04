@@ -137,10 +137,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="externals\src\imgui.cpp" />
+    <ClCompile Include="externals\src\imgui_demo.cpp" />
+    <ClCompile Include="externals\src\imgui_draw.cpp" />
+    <ClCompile Include="externals\src\imgui_impl_glfw.cpp" />
+    <ClCompile Include="externals\src\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="externals\src\imgui_tables.cpp" />
+    <ClCompile Include="externals\src\imgui_widgets.cpp" />
+    <ClCompile Include="externals\src\stb_image.cpp" />
+    <ClCompile Include="src\draw.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\minesweeper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="externals\include\imconfig.h" />
+    <ClInclude Include="externals\include\imgui.h" />
+    <ClInclude Include="externals\include\imgui_impl_glfw.h" />
+    <ClInclude Include="externals\include\imgui_impl_opengl3.h" />
+    <ClInclude Include="externals\include\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="externals\include\imgui_internal.h" />
+    <ClInclude Include="externals\include\imstb_rectpack.h" />
+    <ClInclude Include="externals\include\imstb_textedit.h" />
+    <ClInclude Include="externals\include\imstb_truetype.h" />
+    <ClInclude Include="externals\include\stb_image.h" />
+    <ClInclude Include="include\constants.hpp" />
     <ClInclude Include="include\minesweeper.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
