@@ -20,10 +20,22 @@ Minesweeper::Minesweeper()
 void Minesweeper::Update()
 {
     srand(time(0));
+    generalPurposeTimer += DeltaTime;
     dl = ImGui::GetBackgroundDrawList();
+    switch (scene)
+    {
+        case 0:
+            GameDiscover();
+            GameFlag();
+            break;
+        case 1:
+            //WinningScreen();
+            break;
+        case 2:
+            GameOverScreen();
+            break;
+    }
     Draw();
-    GameDiscover();
-    GameFlag();
 }
 
 void Minesweeper::Render()
@@ -102,6 +114,10 @@ int Minesweeper::checkAround(int x, int y, Vector2 size)
 
 void Minesweeper::InitBoard()
 {
+    hasStarted = false;
+    flagCount = 0;
+    previousMouseFlag = false;
+    generalPurposeTimer = 0.0f;
     board.size = Const::defaultBoardSize;
     board.tiles.resize(Const::defaultBoardSize.y, std::vector<Tile>(Const::defaultBoardSize.x, {false, 0, false, false}));
     Tile fake = {false, 0, false, false};

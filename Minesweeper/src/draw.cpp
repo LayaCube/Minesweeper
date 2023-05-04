@@ -27,9 +27,9 @@ void Minesweeper::Draw()
 			{
 				int minesAround = board.tiles[loop.x][loop.y].value;
 				if (board.tiles[loop.x][loop.y].isMine)
-					dl->AddText(ImGui::GetFont(), 64, pos+10, ImColor(255,255,0,255), "M");
+					dl->AddText(ImGui::GetFont(), Const::defaultCaseSize.x, pos+10, ImColor(255,255,0,255), "M");
 				else
-					dl->AddText(ImGui::GetFont(), 64, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
+					dl->AddText(ImGui::GetFont(), Const::defaultCaseSize.x, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
 			}
 			else if (board.tiles[loop.x][loop.y].isFlagged)
 				dl->AddText(ImGui::GetFont(), 64, pos, ImColor(0,0,255,255), "FF");

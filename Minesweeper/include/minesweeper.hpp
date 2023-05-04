@@ -33,10 +33,13 @@ public:
 	};
 	ImDrawList* dl;
 	Board board;
+
+	float generalPurposeTimer = 0.0f;
+
 	int flagCount;
 	bool previousMouseFlag = false;
 	bool hasStarted = false;
-
+	int scene = 0;
 
 	void Draw();
 	void InitBoard();
@@ -48,4 +51,5 @@ public:
 	void AutoDiscovery(int x, int y);
 	void GameFlag();
 	void GameOver();
+	void GameOverScreen();
 };

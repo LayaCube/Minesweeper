@@ -41,7 +41,11 @@ void Minesweeper::GameOver()
 		InitBoard();
 		GameDiscover(true);
 		hasStarted = true;
+		return;
 	}
+
+	scene = 2;
+	generalPurposeTimer = 0;
 }
 
 void Minesweeper::GameFlag()
