@@ -12,14 +12,14 @@ Minesweeper::Minesweeper()
     : Game("Minesweeper")
 {
     mountain::Renderer::ClearColor = mountain::Colorf(0, 0, 0, 1);
-    
+    srand(time(0));
     InitBoard();
     mountain::Input::Initialize();
 }
 
 void Minesweeper::Update()
 {
-    srand(time(0));
+    
     generalPurposeTimer += DeltaTime;
     dl = ImGui::GetBackgroundDrawList();
     switch (scene)
