@@ -37,4 +37,6 @@ public:
 	void InitBoard();
 	int checkAround(int x, int y, Vector2 size);
 	bool isPositionValid(int x, int y);
+	bool isPositionValid(Vector2 pos);
+	void GameClick();
 };

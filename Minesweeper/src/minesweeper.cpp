@@ -5,6 +5,7 @@
 #include <draw.hpp>
 #include <constants.hpp>
 #include <iostream>
+#include <input.hpp>
 
 
 Minesweeper::Minesweeper()
@@ -18,6 +19,7 @@ Minesweeper::Minesweeper()
         for (int y = 0; y < Const::defaultBoardSize.y; y++)
             board.tiles[x][y] = fake;
     InitBoard();
+    mountain::Input::Initialize();
 }
 
 void Minesweeper::Update()
@@ -25,6 +27,7 @@ void Minesweeper::Update()
     srand(time(0));
     dl = ImGui::GetBackgroundDrawList();
     Draw();
+    GameClick();
 }
 
 void Minesweeper::Render()
@@ -80,7 +83,12 @@ bool Minesweeper::isPositionValid(int x, int y)
 {
     bool notNegative = x >= 0 && y >= 0;
     bool notOverflow = x < board.size.x && y < board.size.y;
-    //printf("%s\n", notNegative && notOverflow ? "true" : "false");
+    return notNegative && notOverflow;
+}
+bool Minesweeper::isPositionValid(Vector2 pos)
+{
+    bool notNegative = pos.x >= 0 && pos.y >= 0;
+    bool notOverflow = pos.x < board.size.x && pos.y < board.size.y;
     return notNegative && notOverflow;
 }
 

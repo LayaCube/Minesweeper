@@ -146,6 +146,7 @@
     <ClCompile Include="externals\src\imgui_widgets.cpp" />
     <ClCompile Include="externals\src\stb_image.cpp" />
     <ClCompile Include="src\draw.cpp" />
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\minesweeper.cpp" />
   </ItemGroup>
