@@ -15,6 +15,7 @@ void Minesweeper::GameDiscover()
 	if (!isPositionValid(x, y)) return;
 
 	if (board.tiles[x][y].isMine)	/*GameOver();*/return;
+	if (board.tiles[x][y].isFlagged)	return;
 	if (!board.tiles[x][y].isDiscovered)
 	AutoDiscovery(x, y);
 }
