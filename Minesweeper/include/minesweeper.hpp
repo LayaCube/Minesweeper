@@ -39,4 +39,5 @@ public:
 	bool isPositionValid(int x, int y);
 	bool isPositionValid(Vector2 pos);
 	void GameClick();
+	void AutoDiscovery(int x, int y);
 };
