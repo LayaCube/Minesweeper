@@ -31,6 +31,8 @@ void Minesweeper::Draw()
 				else
 					dl->AddText(ImGui::GetFont(), 64, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
 			}
+			else if (board.tiles[loop.x][loop.y].isFlagged)
+				dl->AddText(ImGui::GetFont(), 64, pos, ImColor(0,0,255,255), "FF");
 		}
 	}
 }

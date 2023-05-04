@@ -24,6 +24,7 @@ public:
 		bool	isDiscovered	= false;
 		int		value			= 0;
 		bool	isMine			= false;
+		bool	isFlagged		= false;
 	};
 
 	struct Board {
@@ -32,12 +33,18 @@ public:
 	};
 	ImDrawList* dl;
 	Board board;
+	int flagCount;
+	bool previousMouseFlag = false;
+	float timerBetweenFlagging = 0.f;
+
 
 	void Draw();
 	void InitBoard();
 	int checkAround(int x, int y, Vector2 size);
 	bool isPositionValid(int x, int y);
 	bool isPositionValid(Vector2 pos);
-	void GameClick();
+	Vector2 tileSnap();
+	void GameDiscover();
 	void AutoDiscovery(int x, int y);
+	void GameFlag();
 };

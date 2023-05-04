@@ -13,8 +13,8 @@ Minesweeper::Minesweeper()
 {
     mountain::Renderer::ClearColor = mountain::Colorf(0, 0, 0, 1);
     board.size = Const::defaultBoardSize;
-    board.tiles.resize(Const::defaultBoardSize.y, std::vector<Tile>(Const::defaultBoardSize.x, {false, 0, false}));
-    Tile fake = {false, 0, false};
+    board.tiles.resize(Const::defaultBoardSize.y, std::vector<Tile>(Const::defaultBoardSize.x, {false, 0, false, false}));
+    Tile fake = {false, 0, false, false};
     for (int x = 0; x < Const::defaultBoardSize.x; x++)
         for (int y = 0; y < Const::defaultBoardSize.y; y++)
             board.tiles[x][y] = fake;
@@ -27,7 +27,9 @@ void Minesweeper::Update()
     srand(time(0));
     dl = ImGui::GetBackgroundDrawList();
     Draw();
-    GameClick();
+    GameDiscover();
+    GameFlag();
+    timerBetweenFlagging += DeltaTime;
 }
 
 void Minesweeper::Render()
