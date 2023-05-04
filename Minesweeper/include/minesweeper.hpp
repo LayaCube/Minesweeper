@@ -5,6 +5,7 @@
 #include <imgui_impl_opengl3.h>
 #include <game.hpp>
 #include <vector.hpp>
+#include <constants.hpp>
 
 class Minesweeper : public mountain::Game
 {
@@ -20,6 +21,7 @@ public:
 	void PostRender() override;
 	void Shutdown() override;
 
+	//Structs
 	struct Tile {
 		bool	isDiscovered	= false;
 		int		value			= 0;
@@ -34,13 +36,15 @@ public:
 	ImDrawList* dl;
 	Board board;
 
+	//Variables
 	float generalPurposeTimer = 0.0f;
-
 	int flagCount;
 	bool previousMouseFlag = false;
 	bool hasStarted = false;
 	int scene = 0;
 
+
+	//Functions
 	void Draw();
 	void InitBoard();
 	int checkAround(int x, int y, Vector2 size);
@@ -52,4 +56,8 @@ public:
 	void GameFlag();
 	void GameOver();
 	void GameOverScreen();
+
+	//Constants to overwrite
+	Vector2 defaultCaseSize = Const::defaultCaseSize;
+	void varUpdate();
 };

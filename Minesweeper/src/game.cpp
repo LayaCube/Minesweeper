@@ -1,6 +1,5 @@
 #include "minesweeper.hpp"
 
-#include <constants.hpp>
 #include <string>
 #include <input.hpp>
 

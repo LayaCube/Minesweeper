@@ -3,7 +3,6 @@
 #include <renderer.hpp>
 #include <color.hpp>
 #include <draw.hpp>
-#include <constants.hpp>
 #include <string>
 #include <input.hpp>
 #include <iostream>

@@ -3,7 +3,6 @@
 #include <renderer.hpp>
 #include <color.hpp>
 #include <draw.hpp>
-#include <constants.hpp>
 #include <iostream>
 #include <input.hpp>
 
@@ -36,6 +35,7 @@ void Minesweeper::Update()
             break;
     }
     Draw();
+    varUpdate();
 }
 
 void Minesweeper::Render()
@@ -140,4 +140,9 @@ void Minesweeper::InitBoard()
             }
         }
     }
+}
+
+void Minesweeper::varUpdate()
+{
+    defaultCaseSize = Const::defaultCaseSize/720 * mountain::Renderer::WindowSize.y;
 }

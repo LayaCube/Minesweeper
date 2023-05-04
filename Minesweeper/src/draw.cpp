@@ -3,7 +3,6 @@
 #include <renderer.hpp>
 #include <color.hpp>
 #include <draw.hpp>
-#include <constants.hpp>
 #include <string>
 
 void ResizeCallback(GLFWwindow* window, int width, int height)
@@ -20,19 +19,19 @@ void Minesweeper::Draw()
 	{
 		for (loop.y = 0; loop.y < board.size.y; loop.y++)
 		{
-			Vector2 pos = Const::defaultCaseSize * loop;
-			mountain::Draw::RectFilled(pos, Const::defaultCaseSize, Const::COL_MAIN);
-			mountain::Draw::Rect(pos, Const::defaultCaseSize, Const::COL_SECO);
+			Vector2 pos = defaultCaseSize * loop;
+			mountain::Draw::RectFilled(pos, defaultCaseSize, Const::COL_MAIN);
+			mountain::Draw::Rect(pos, defaultCaseSize, Const::COL_SECO);
 			if (board.tiles[loop.x][loop.y].isDiscovered)
 			{
 				int minesAround = board.tiles[loop.x][loop.y].value;
 				if (board.tiles[loop.x][loop.y].isMine)
-					dl->AddText(ImGui::GetFont(), Const::defaultCaseSize.x, pos+10, ImColor(255,255,0,255), "M");
+					dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos+10, ImColor(255,255,0,255), "M");
 				else
-					dl->AddText(ImGui::GetFont(), Const::defaultCaseSize.x, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
+					dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
 			}
 			else if (board.tiles[loop.x][loop.y].isFlagged)
-				dl->AddText(ImGui::GetFont(), 64, pos, ImColor(0,0,255,255), "FF");
+				dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos, ImColor(0,0,255,255), "FF");
 		}
 	}
 }
