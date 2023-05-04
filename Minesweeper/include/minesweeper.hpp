@@ -35,6 +35,7 @@ public:
 	Board board;
 	int flagCount;
 	bool previousMouseFlag = false;
+	bool hasStarted = false;
 
 
 	void Draw();
@@ -43,7 +44,8 @@ public:
 	bool isPositionValid(int x, int y);
 	bool isPositionValid(Vector2 pos);
 	Vector2 tileSnap();
-	void GameDiscover();
+	void GameDiscover(bool force = false);
 	void AutoDiscovery(int x, int y);
 	void GameFlag();
+	void GameOver();
 };

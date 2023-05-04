@@ -12,12 +12,7 @@ Minesweeper::Minesweeper()
     : Game("Minesweeper")
 {
     mountain::Renderer::ClearColor = mountain::Colorf(0, 0, 0, 1);
-    board.size = Const::defaultBoardSize;
-    board.tiles.resize(Const::defaultBoardSize.y, std::vector<Tile>(Const::defaultBoardSize.x, {false, 0, false, false}));
-    Tile fake = {false, 0, false, false};
-    for (int x = 0; x < Const::defaultBoardSize.x; x++)
-        for (int y = 0; y < Const::defaultBoardSize.y; y++)
-            board.tiles[x][y] = fake;
+    
     InitBoard();
     mountain::Input::Initialize();
 }
@@ -107,6 +102,13 @@ int Minesweeper::checkAround(int x, int y, Vector2 size)
 
 void Minesweeper::InitBoard()
 {
+    board.size = Const::defaultBoardSize;
+    board.tiles.resize(Const::defaultBoardSize.y, std::vector<Tile>(Const::defaultBoardSize.x, {false, 0, false, false}));
+    Tile fake = {false, 0, false, false};
+    for (int x = 0; x < Const::defaultBoardSize.x; x++)
+        for (int y = 0; y < Const::defaultBoardSize.y; y++)
+            board.tiles[x][y] = fake;
+
     //Chooses a random tile to be mine
     for (int i = 0; i < Const::defaultMinesNumber; i++)
         board.tiles[rand() % (int)(board.size.x)][rand() % (int)(board.size.y)].isMine = true;
