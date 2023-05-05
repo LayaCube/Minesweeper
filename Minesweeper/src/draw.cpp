@@ -24,7 +24,7 @@ void Minesweeper::Draw()
 			Vector2 pos = defaultCaseSize * loop;
 			mountain::Draw::RectFilled(pos, defaultCaseSize, Const::COL_MAIN);
 			mountain::Draw::Rect(pos, defaultCaseSize, Const::COL_SECO);
-			if (board.tiles[loop.x][loop.y].isDiscovered)
+			if (board.tiles[loop.x][loop.y].isDiscovered || scene == 2)
 			{
 				int minesAround = board.tiles[loop.x][loop.y].value;
 				if (board.tiles[loop.x][loop.y].isMine)
@@ -32,7 +32,7 @@ void Minesweeper::Draw()
 				else
 					dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos, ImColor(31 * minesAround,0,0,255), std::to_string(minesAround).c_str());
 			}
-			else if (board.tiles[loop.x][loop.y].isFlagged)
+			if (board.tiles[loop.x][loop.y].isFlagged)
 				dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos, ImColor(0,0,255,255), "FF");
 		}
 	}

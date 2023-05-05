@@ -13,6 +13,6 @@ namespace Const
 
     //Gameplay
     constexpr Vector2   defaultBoardSize = {10,10};
-    constexpr int       defaultMinesNumber = 1;
+    constexpr int       defaultMinesNumber = 99;
 
 }

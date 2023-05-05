@@ -13,9 +13,9 @@ void Minesweeper::GameDiscover(bool force)
 	int y = tileSnap().y;
 	if (!isPositionValid(x, y)) return;
 
+	if (board.tiles[x][y].isFlagged)	return;
 	if (board.tiles[x][y].isMine)
 		{GameOver(); return;}
-	if (board.tiles[x][y].isFlagged)	return;
 	if (!board.tiles[x][y].isDiscovered)
 		AutoDiscovery(x, y);
 }
