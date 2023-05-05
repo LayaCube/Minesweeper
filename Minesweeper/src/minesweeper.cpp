@@ -116,6 +116,7 @@ void Minesweeper::InitBoard()
 {
     hasStarted = false;
     flagCount = 0;
+    mineNumber = Const::defaultMinesNumber;
     previousMouseFlag = false;
     generalPurposeTimer = 0.0f;
     board.size = Const::defaultBoardSize;
@@ -126,7 +127,7 @@ void Minesweeper::InitBoard()
             board.tiles[x][y] = fake;
 
     //Chooses a random tile to be mine
-    for (int i = 0; i < Const::defaultMinesNumber; i++)
+    for (int i = 0; i <= Const::defaultMinesNumber; i++)
         board.tiles[rand() % (int)(board.size.x)][rand() % (int)(board.size.y)].isMine = true;
     
     //Calculates numbers for each tile

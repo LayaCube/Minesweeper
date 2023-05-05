@@ -51,6 +51,7 @@ void Minesweeper::GameFlag()
 {
 	if (!mountain::Input::MouseDown[mountain::inputs::MouseButton_Right]) {previousMouseFlag = false ; return;} 
 	if (previousMouseFlag) return;
+	
 	previousMouseFlag = true;
 	
 	int x = tileSnap().x;
@@ -58,6 +59,8 @@ void Minesweeper::GameFlag()
 	if (!isPositionValid(x, y)) return;
 	if (board.tiles[x][y].isDiscovered) return;
 
+	if (flagCount >= mineNumber && !board.tiles[x][y].isFlagged)
+		return;
 	board.tiles[x][y].isFlagged = !board.tiles[x][y].isFlagged;
 	flagCount += board.tiles[x][y].isFlagged ? 1 : -1;
 }

@@ -15,6 +15,8 @@ void ResizeCallback(GLFWwindow* window, int width, int height)
 void Minesweeper::Draw()
 {
 	glfwSetFramebufferSizeCallback(mountain::Renderer::GetWindow(), ResizeCallback);
+
+	//Draw Tiles
 	for (Vector2 loop = {0,0}; loop.x < board.size.x; loop.x++)
 	{
 		for (loop.y = 0; loop.y < board.size.y; loop.y++)
@@ -34,5 +36,10 @@ void Minesweeper::Draw()
 				dl->AddText(ImGui::GetFont(), defaultCaseSize.x, pos, ImColor(0,0,255,255), "FF");
 		}
 	}
+
+	//Draw Flag Counter
+	std::string flag = std::to_string(flagCount) + "/" + std::to_string(mineNumber);
+	dl->AddText(ImGui::GetFont(), defaultCaseSize.x, {mountain::Renderer::WindowSize.x-128.f, mountain::Renderer::WindowSize.y-96.f},
+		ImColor(0,0,255,255), flag.c_str());
 }
 

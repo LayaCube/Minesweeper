@@ -39,6 +39,7 @@ public:
 	//Variables
 	float generalPurposeTimer = 0.0f;
 	int flagCount;
+	int mineNumber;
 	bool previousMouseFlag = false;
 	bool hasStarted = false;
 	int scene = 0;
