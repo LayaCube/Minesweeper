@@ -63,6 +63,17 @@ void Minesweeper::GameFlag()
 		return;
 	board.tiles[x][y].isFlagged = !board.tiles[x][y].isFlagged;
 	flagCount += board.tiles[x][y].isFlagged ? 1 : -1;
+	int sum = 0;
+	for (int dx = 0; dx < board.size.x; dx++)
+        for (int dy = 0; dy < board.size.y; dy++)
+			if (board.tiles[dx][dy].isMine && board.tiles[dx][dy].isFlagged)
+				sum ++;
+	
+	if (sum == mineNumber)
+	{
+		scene = 1;
+		generalPurposeTimer = 0;
+	}
 }
 
 Vector2 Minesweeper::tileSnap()
@@ -72,3 +83,4 @@ Vector2 Minesweeper::tileSnap()
 	index.y = (int) (mountain::Input::MousePosition.y / Const::defaultCaseSize.y);
 	return index;
 }
+

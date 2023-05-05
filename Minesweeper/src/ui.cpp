@@ -16,3 +16,13 @@ void Minesweeper::GameOverScreen()
 		InitBoard();
 	}
 }
+
+void Minesweeper::WinningScreen()
+{
+	dl->AddText(ImGui::GetFont(), 96, {0,0}, ImColor(255,255,0,255), "You won");
+	if (generalPurposeTimer > 1.0f && mountain::Input::MouseDown[mountain::inputs::MouseButton_Left])
+	{
+		scene = 0;
+		InitBoard();
+	}
+}

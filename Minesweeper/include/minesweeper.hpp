@@ -57,7 +57,7 @@ public:
 	void GameFlag();
 	void GameOver();
 	void GameOverScreen();
-
+	void WinningScreen();
 	//Constants to overwrite
 	Vector2 defaultCaseSize = Const::defaultCaseSize;
 	void varUpdate();

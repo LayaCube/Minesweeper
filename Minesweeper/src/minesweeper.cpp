@@ -28,7 +28,7 @@ void Minesweeper::Update()
             GameFlag();
             break;
         case 1:
-            //WinningScreen();
+            WinningScreen();
             break;
         case 2:
             GameOverScreen();
@@ -127,7 +127,7 @@ void Minesweeper::InitBoard()
             board.tiles[x][y] = fake;
 
     //Chooses a random tile to be mine
-    for (int i = 0; i <= Const::defaultMinesNumber; i++)
+    for (int i = 0; i < Const::defaultMinesNumber; i++)
         board.tiles[rand() % (int)(board.size.x)][rand() % (int)(board.size.y)].isMine = true;
     
     //Calculates numbers for each tile
